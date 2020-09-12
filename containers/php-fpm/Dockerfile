@@ -17,7 +17,9 @@ RUN composer global require hirak/prestissimo
 
 # install webloyer
 WORKDIR /var/app/src/webloyer
-RUN composer create-project ngmy/webloyer .
+#RUN composer create-project razoralpha/webloyer .
+RUN git clone https://github.com/Razoralpha/webloyer.git
+RUN composer install
 RUN chown -R www-data:www-data storage
 RUN chown -R www-data:www-data bootstrap/cache
 RUN ln -fns /var/app/src/webloyer /var/www/webloyer
